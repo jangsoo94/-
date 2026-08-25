@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><title>Demo — 스크롤 랜딩</title>
+<style>
+  :root { --bg:#0b0f1a; --fg:#e8eaf0; --accent:#ffc451; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,sans-serif;}
+  header.gnb{
+    position:fixed;top:0;left:0;right:0;height:72px;
+    background:rgba(11,15,26,.85);backdrop-filter:blur(10px);
+    display:flex;align-items:center;padding:0 32px;
+    border-bottom:1px solid rgba(255,255,255,.08);z-index:100;
+  }
+  .gnb .logo{font-weight:700;letter-spacing:.02em;font-size:18px;color:var(--accent);}
+  .gnb nav{margin-left:auto;display:flex;gap:24px;font-size:14px;color:#a7adbb;}
+
+  section{
+    min-height:100vh;padding:120px 64px 80px;
+    display:flex;flex-direction:column;justify-content:center;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  section h2{font-size:56px;letter-spacing:-0.02em;margin-bottom:20px;font-weight:700;}
+  section p{font-size:19px;color:#a7adbb;max-width:56ch;line-height:1.6;}
+  .tag{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-family:ui-monospace,monospace;}
+
+  /* Section 1 — HERO with running animation */
+  #s1{background:radial-gradient(ellipse at 30% 40%, #1a2340 0%, var(--bg) 70%);position:relative;overflow:hidden;}
+  #s1::before{
+    content:"";position:absolute;top:20%;right:8%;width:340px;height:340px;
+    background:conic-gradient(from 0deg,var(--accent),transparent 60%);
+    border-radius:50%;filter:blur(20px);opacity:.5;
+    animation:spin 8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* Section 2 — static content */
+  #s2{background:#111624;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+  .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:24px;border-radius:6px;}
+  .card h3{font-size:18px;margin-bottom:8px;}
+  .card p{font-size:14px;color:#a7adbb;}
+
+  /* Section 3 — pulsing motion */
+  #s3{background:#0d1220;}
+  .pulse{width:180px;height:180px;border-radius:50%;background:var(--accent);margin-top:32px;
+    animation:pulse 2s ease-in-out infinite;box-shadow:0 0 80px rgba(255,196,81,.4);}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:.7;}50%{transform:scale(1.2);opacity:1;}}
+
+  /* Section 4 — static footer-like */
+  #s4{background:#080b13;min-height:60vh;}
+  .stat{font-family:ui-monospace,monospace;font-size:64px;color:var(--accent);margin-top:16px;}
+</style></head>
+<body>
+
+<header class="gnb">
+  <div class="logo">STEELFLOW</div>
+  <nav><a>회사소개</a><a>사업</a><a>ESG</a><a>홍보</a><a>채용</a></nav>
+</header>
+
+<section id="s1">
+  <span class="tag">SECTION 01 — HERO</span>
+  <h2>미래를 잇는<br>철의 흐름</h2>
+  <p>회전하는 배경 그라디언트가 무한 애니메이션으로 재생 중입니다. 규칙 기반 캡처는 이 프레임을 도중에 찍어 흐릿한 결과를 냅니다.</p>
+</section>
+
+<section id="s2">
+  <span class="tag">SECTION 02 — 정적 콘텐츠</span>
+  <h2>사업 영역</h2>
+  <p>움직이는 요소가 없는 정적 섹션입니다. 캡처는 짧은 대기만으로 충분합니다.</p>
+  <div class="grid">
+    <div class="card"><h3>철강 제조</h3><p>고품질 열연·냉연 강판 생산 라인.</p></div>
+    <div class="card"><h3>물류</h3><p>원자재 조달부터 완제품 출고까지.</p></div>
+    <div class="card"><h3>에너지</h3><p>수소·재생 에너지 전환 프로젝트.</p></div>
+  </div>
+</section>
+
+<section id="s3">
+  <span class="tag">SECTION 03 — 애니메이션 강조</span>
+  <h2>지속적인 혁신</h2>
+  <p>펄스 애니메이션이 계속 재생됩니다. 안정화 감지 없이 찍으면 매번 다른 크기의 원이 나타납니다.</p>
+  <div class="pulse"></div>
+</section>
+
+<section id="s4">
+  <span class="tag">SECTION 04 — 데이터</span>
+  <h2>2025년 실적</h2>
+  <p>정적인 숫자 섹션.</p>
+  <div class="stat">42,180억 원</div>
+</section>
+
+</body></html>
