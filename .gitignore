@@ -1,2 +1,4 @@
 node_modules/
+shots/
+package.json
 package-lock.json
