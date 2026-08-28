@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset="utf-8"><title>T2 infinite loop</title>
+<style>
+  body{margin:0;font-family:system-ui;background:#0b0f1a;color:#fff;}
+  section{min-height:600px;padding:60px 40px;}
+  h1{font-size:36px;margin:0 0 12px;}
+  .pulse{width:120px;height:120px;border-radius:50%;background:#ffc451;
+    animation:pulse 2s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.3);}}
+  .marquee{white-space:nowrap;overflow:hidden;font-size:80px;}
+  .marquee span{display:inline-block;animation:scroll 10s linear infinite;}
+  @keyframes scroll{to{transform:translateX(-100%);}}
+</style></head><body>
+<section><h1>Hero</h1><p>펄스와 마퀴 무한 재생</p><div class="pulse"></div></section>
+<section><h1>Marquee</h1><div class="marquee"><span>INFINITE · INFINITE · INFINITE · INFINITE</span></div></section>
+</body></html>

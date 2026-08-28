@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset="utf-8"><title>T2 video</title>
+<style>
+  body{margin:0;font-family:system-ui;background:#000;color:#fff;}
+  section{min-height:600px;padding:60px 40px;position:relative;}
+  video{width:100%;max-width:800px;background:#111;}
+</style></head><body>
+<section><h1>Video Hero</h1>
+<!--
+  autoplay + muted + loop = 재생 의도 명시. 실제 소스가 없어도 classifier는
+  "playing"이 아니라 "autoplay 의도"를 T2 신호로 인정해야 함.
+-->
+<video autoplay muted loop playsinline>
+  <source src="./nope.webm" type="video/webm">
+</video>
+</section>
+</body></html>

@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8"><title>T3 pinned scrolltrigger</title>
+<style>
+  body{margin:0;font-family:system-ui;background:#111;color:#fff;}
+  section{min-height:100vh;padding:60px 40px;}
+  .pin{background:#1a2340;}
+</style>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+</head><body>
+<section><h1>Section 1</h1></section>
+<section class="pin"><h1>Pinned</h1><p>이 섹션은 스크롤 중 화면에 고정됨</p></section>
+<section><h1>Section 3</h1></section>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.create({
+    trigger: '.pin',
+    start: 'top top',
+    end: '+=1000',
+    pin: true,
+  });
+</script>
+</body></html>

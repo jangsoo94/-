@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><title>T1 ScrollTrigger without pin (edge case)</title>
+<!--
+  리서치가 강조한 회귀 케이스:
+  ScrollTrigger·GSAP 로드됐지만 하는 일은 등장 애니메이션뿐.
+  라이브러리 존재로 T3 판정하면 안 됨. T1으로 나와야 함.
+-->
+<style>
+  body{margin:0;font-family:system-ui;background:#fff;color:#111;}
+  section{min-height:100vh;padding:60px 40px;}
+  .fade{opacity:0;transform:translateY(40px);}
+</style>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+</head><body>
+<section><h1>Hero</h1></section>
+<section><h1 class="fade">Fade in on scroll</h1></section>
+<section><h1 class="fade">Another fade</h1></section>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+  document.querySelectorAll('.fade').forEach(el => {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: 0.8,
+      scrollTrigger: { trigger: el, start: 'top 80%' }  // pin 없음
+    });
+  });
+</script>
+</body></html>
